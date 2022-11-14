@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import Details from "../Pages/Details";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import NotFound from "../Pages/NotFound";
@@ -10,6 +11,7 @@ function Public(){
             <Route path="/" element={<Home/>}/>
             <Route path="/Login" element={<Login/>}/>
             <Route path="/Signup" element={<SignUp/>}/>
+            <Route path="/product/detail/:id" element={<Details/>}/>
             <Route path="*" element={<NotFound/>}/>
         </Routes>
     )

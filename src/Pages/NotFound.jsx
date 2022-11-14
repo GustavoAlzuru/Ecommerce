@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
-import NavNotFound from "../Components/NavNotFound"
+import PlainNav from "../Components/Navigation/PlainNav"
 
 function NotFound(){
     return(
         <div>
-            <NavNotFound/>
+            <PlainNav/>
             <div>
                 This page does not exist<br/>
                 <Link to={'/'}><span>Go to main page</span></Link>

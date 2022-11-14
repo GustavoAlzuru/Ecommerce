@@ -1,12 +1,14 @@
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Images from '../Images/Images';
+import Images from '../../Images/Images';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import React, {useState} from "react";
 
-function Navigation(){
+
+function MainNavigation(){
     const styles = {
         navbar: {
            backgroundColor: '#fff059',
@@ -15,7 +17,7 @@ function Navigation(){
         searchBar: {
             marginRight: '20px',
             width: '100%'
-        },
+        }, 
         button: {
             backgroundColor: 'transparent',
             marginLeft: '-65px',
@@ -25,11 +27,12 @@ function Navigation(){
           width: '5rem'
         }
     }
+
     return(
       <Navbar style={styles.navbar} expand="lg">
         <Container>
         <Navbar.Brand as={Link} to='/'><img src={Images.logo} alt="" /></Navbar.Brand>
-        <Form.Control style={styles.searchBar} type="password" placeholder="Search product, brands..."/>
+        <Form.Control style={styles.searchBar} type="text" placeholder="Search product, brands..."/>
         <Button style={styles.button}>🔍</Button>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -38,8 +41,8 @@ function Navigation(){
             <Nav.Link as={Link} to='/Login' style={styles.links}>Login</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-      </Container>
+        </Container>
     </Navbar>
     )
 }
-export default Navigation
+export default MainNavigation

@@ -1,9 +1,12 @@
-import Navigation from "../Components/Navigation"
+import MainNavigation from "../Components/Navigation/MainNavigation"
+import Products from "../Components/Products"
+
 
 function Home(){
     return(
         <>
-            <Navigation/>
+            <MainNavigation/>
+            <Products/>
         </>
     )
 }

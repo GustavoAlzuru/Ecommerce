@@ -1,10 +1,9 @@
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Images from '../Images/Images';
+import Images from '../../Images/Images';
 import { Link } from 'react-router-dom';
 
-function NavigationOther(){
+function LoginNavigation(){
     const styles = {
         navbar: {
            backgroundColor: '#fff059',
@@ -24,4 +23,4 @@ function NavigationOther(){
       </div>
     )
 }
-export default NavigationOther
+export default LoginNavigation

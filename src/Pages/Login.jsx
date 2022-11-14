@@ -1,8 +1,9 @@
-import NavigationOther from "../Components/NavigationOther"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
+import LoginNavigation from '../Components/Navigation/LoginNavigation';
+import { useForm } from 'react-hook-form';
 
 function Login(){
     const styles= {
@@ -20,20 +21,24 @@ function Login(){
             marginBottom: '20px'
         }
     }
+    const { register, handleSubmit } = useForm();
+
+    const onSubmit = data => console.log(data);
+
     return(
         <>
-            <NavigationOther/>
+            <LoginNavigation/>
             <Card style={styles.card}>
                 <h3 style={styles.title}>Hello! Please sign in</h3>
-                <Form>
+                <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="mb-3"    controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email"  placeholder="Enter email" />
+                <Form.Control type="email"  placeholder="Enter email" {...register('email')}/>
                 </Form.Group>
 
                 <Form.Group className="mb-3"        controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password"       placeholder="Password" />
+                <Form.Control type="password" placeholder="Password" {...register('password')}/>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
