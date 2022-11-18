@@ -16,5 +16,5 @@ function PlainNav(){
       </Container>
     </Navbar>
     )
-}
-export default PlainNav
+}  
+export default PlainNav 

@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* global styles */
+.mainBackground{
+  background-color: #E8E8E8;
+  min-height: 100vh;
+}
+.link{
+  text-decoration: none;
+  color: #333;
+}

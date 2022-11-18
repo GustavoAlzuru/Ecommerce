@@ -2,8 +2,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
-import LoginNavigation from '../Components/Navigation/LoginNavigation';
 import { useForm } from 'react-hook-form';
+import PlainNav from '../Components/Navigation/PlainNav';
 
 function Login(){
     const styles= {
@@ -20,14 +20,14 @@ function Login(){
             textAlign: 'start',
             marginBottom: '20px'
         }
-    }
+    } 
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => console.log(data);
 
     return(
         <>
-            <LoginNavigation/>
+            <PlainNav/>
             <Card style={styles.card}>
                 <h3 style={styles.title}>Hello! Please sign in</h3>
                 <Form onSubmit={handleSubmit(onSubmit)}>

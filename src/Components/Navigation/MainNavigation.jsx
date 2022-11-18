@@ -8,11 +8,16 @@ import Container from 'react-bootstrap/Container';
 import React, {useState} from "react";
 
 
-function MainNavigation(){
-    const styles = {
+function MainNavigation({setBuscador}){
+  const [search, setSearch] = useState('')
+    const styles = { 
         navbar: {
            backgroundColor: '#fff059',
-           flexWrap: 'no-wrap' 
+           flexWrap: 'no-wrap'
+        },
+        container:{
+          width: '100%',
+          position: 'relative'
         },
         searchBar: {
             marginRight: '20px',
@@ -20,20 +25,32 @@ function MainNavigation(){
         }, 
         button: {
             backgroundColor: 'transparent',
-            marginLeft: '-65px',
-            border: 'none'
+            position: 'absolute',
+            border: 'none',
+            right: '5px',
+            top: '0px'
         },
         links: {
           width: '5rem'
         }
+    }
+ 
+    const handleChange = (e) => setSearch(e.target.value)
+    const handleClick = () => {setBuscador(search)}
+    const enterFunction = (e) => {
+      if(e.keyCode === 13){
+        handleClick()
+      }
     }
 
     return(
       <Navbar style={styles.navbar} expand="lg">
         <Container>
         <Navbar.Brand as={Link} to='/'><img src={Images.logo} alt="" /></Navbar.Brand>
-        <Form.Control style={styles.searchBar} type="text" placeholder="Search product, brands..."/>
-        <Button style={styles.button}>🔍</Button>
+        <div style={styles.container}>
+          <Form.Control style={styles.searchBar} type="text" placeholder="Search product, brands..." onChange={handleChange} onKeyDown={enterFunction}/>
+          <Button style={styles.button} onClick={handleClick}>🔍</Button>
+        </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

@@ -21,13 +21,13 @@ function SignUp(){
         card: {
           width: '46rem',
           padding: '45px 20px'
-        }
+        } 
     }
     const { register, handleSubmit} = useForm();
 
     const onSubmit = data => {
       console.log(data)
-    }
+    } 
 
     return(
         <>
