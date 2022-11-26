@@ -1,32 +1,43 @@
 import PlainNav from "../Components/Navigation/PlainNav"
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { useParams } from "react-router-dom";
+import { getProduct } from "../Services/ProductServices";
+import { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
+import AlertCustom from "../Components/AlertCustom";
 
 function CheckOut(){
+    const {id} = useParams()
+    const [product, setProduct] = useState({})
+    const [images, setImages] = useState([])
+    const [alert, setAlert] = useState({variant: '', text: ''})
+
+    useEffect(
+        () => {
+            const product = async () => {
+                const data = await getProduct(id)
+                setProduct(data)
+                setImages(data.pictures)
+            }   
+            product() 
+        },
+        [id] 
+    )
+    // console.log(product)
+//    console.log(product.pictures?[0])
+// console.log(product.pictures[0]?.url)
+    const first = images[0]
     return(
     <>
         <PlainNav/>
         <div className="mainBackground">
-        <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-                <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-                </Form.Text>
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
-        </Form>
+            <h3>{product.title}</h3>
+            {/* <img src={product.pictures[0].url} alt="" /> */}
+            {/* {product.pictures?.map(img => <img src={img.url}/>)} */}
+            <img src={first?.url} alt="" />
+            {/* <img src={} alt="" /> */}
+            <p>$ {product.price}</p>
+            <Button onClick={() => setAlert({variant: 'success', text: 'thanks for buying'})}>Buy</Button>
+            <AlertCustom {...alert}/>
         </div>
     </>
     ) 

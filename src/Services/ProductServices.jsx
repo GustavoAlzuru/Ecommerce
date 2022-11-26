@@ -3,4 +3,4 @@ export const getProducts = async buscador => {
 }
 export const getProduct = async id => {
         return await fetch(`https://api.mercadolibre.com/items/${id}`).then(data => data.json())
-}
+} 

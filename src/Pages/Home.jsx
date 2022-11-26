@@ -1,17 +1,18 @@
-import { useState } from "react"
 import MainNavigation from "../Components/Navigation/MainNavigation"
 import Products from "../Components/Products"
+import SearchProvider from "../Context/SearchItemContext"
 
 
 function Home(){
-    const [buscador, setBuscador] = useState('ipod')
     return(
-        <>
-            <MainNavigation setBuscador={setBuscador}/>
-            <div className="mainBackground">
-                <Products buscador={buscador}/>
-            </div>
+        <>  
+        <SearchProvider>
+                <MainNavigation/>
+                <div className="mainBackground">
+                    <Products/>
+                </div> 
+        </SearchProvider>
         </>
     )
 }
-export default Home 
+export default Home  

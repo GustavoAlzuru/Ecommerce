@@ -8,7 +8,6 @@ function NotFound(){
             <div>
                 This page does not exist<br/>
                 <Link to={'/'}><span>Go to main page</span></Link>
-                
             </div>
         </div>
     )

@@ -12,7 +12,7 @@ function Public(){
             <Route path="/" element={<Home/>}/>
             <Route path="/Login" element={<Login/>}/>
             <Route path="/Signup" element={<SignUp/>}/>
-            <Route path="/CheckOut" element={<CheckOut/>}/>
+            <Route path="/CheckOut/:id" element={<CheckOut/>}/>
             <Route path="/product/detail/:id" element={<Details/>}/>
             <Route path="*" element={<NotFound/>}/>
         </Routes>
